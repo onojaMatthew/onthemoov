@@ -18,15 +18,12 @@ exports.customerNotification = (data) => {
     }
   };
 
-  // const  registrationToken = "ceRqsUlXTnO39h9JvLHVEf:APA91bHLaUZ69ID5Y_8GIOJDBwJZSlkGRWakPB9KcOGS7h481XizFPxf8s8uhvejmMlCZd77is9qV2Bwb3IHJ_BQcQO4853QpCjgN0k2qQeTL_ZusKshpvVGF_pU_rtGDXyZHjrXhvCb";
   const message = notification_message;
   const options =  notification_options;
     
   admin.messaging().sendToDevice(data.deviceToken, message, options)
     .then( response => {
       console.log(JSON.stringify(response));
-      // res.status(200).send("Notification sent successfully")
-      
     })
     .catch( error => {
         console.log(error);
