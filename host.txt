@@ -1,0 +1,14 @@
+creating ssh-key on vultr.com
+
+1.  ssh-key tab
+2.  ssh-keygen -t rsa -b 4096 
+3.  cppy the ssh-key with the command: cat ~/.ssh/id_rsa.pub
+4.  Paste it in the server and click on the "add ssh-key" button
+
+Step 2.  creating a vultr server
+
+1.  go to instance tab
+2.  Click on the +button to create a new server
+3.  Select server location, OS type, package type in amount/month, add ip6v and select the ssh-key you created
+4.  Finally click on the create button below.
+
