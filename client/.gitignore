@@ -18,7 +18,9 @@
 .env.test.local
 .env.production.local
 
+host.txt
 logFile.log
 npm-debug.log*
+Procfile
 yarn-debug.log*
 yarn-error.log*
