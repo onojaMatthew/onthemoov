@@ -131,7 +131,7 @@ const CustomerOrders = () => {
           </Row>
         </CardBody>
       </Card>
-      {filterData && filterData.length > 0 ? (
+      {data && data.length > 0 ? (
         <Paginations items={data && data} onChangePage={onChangePage} />
       ) : null}
     </div>

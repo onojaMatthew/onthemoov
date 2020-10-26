@@ -170,7 +170,7 @@ const Settings = (props) => {
             <Col xs="12" xl="6">
               {policy.deleteLoading ? (
                 <div className="text-center">
-                  <Spinner />
+                  <Spinner style={styles.spinner} />
                 </div>
               ) : (
                 <Button style={{ color: "#fff", background: "#26ACD1", float: "right"}} icon={<DeleteOutlined />} onClick={() => onDeletePolicy()}>Delete</Button>
@@ -194,7 +194,7 @@ const Settings = (props) => {
             <Col xs="12" xl="6">
             {terms_condition.deleteLoading ? (
                 <div className="text-center">
-                  <Spinner />
+                  <Spinner style={styles.spinner} />
                 </div>
               ) : (
                 <Button style={{ color: "#fff", background: "#26ACD1", float: "right"}} icon={<DeleteOutlined />} onClick={() => onDeleteTerm()}>Delete</Button>
@@ -310,7 +310,7 @@ const Settings = (props) => {
                     <Col xs="12" xl="12">
                       {vehicles.updateVehicleLoading ? (
                         <div className="text-center">
-                          <Spinner />
+                          <Spinner style={styles.spinner} />
                         </div>
                       ) : (
                         <Button onClick={() => onUpdateVehicle()} style={styles.saveButton}>Save</Button>
@@ -342,7 +342,7 @@ const Settings = (props) => {
                       <Col xs="12" xl="12">
                         {vehicles.addLoading ? (
                           <div className="text-center">
-                            <Spinner />
+                            <Spinner style={styles.spinner} />
                           </div>
                         ) : (
                           <Button onClick={() => onAdd()} style={styles.saveButton}>Save</Button>
@@ -371,7 +371,7 @@ const Settings = (props) => {
               </Button>,
               policy.addLoading || policy.updateLoading ? (
                 <div className="text-center">
-                  <Spinner />
+                  <Spinner style={styles.spinner} />
                 </div>
               ) : (
                 <Button key="submit" type="primary" onClick={() => onAddPolicy()}>
@@ -395,7 +395,7 @@ const Settings = (props) => {
               </Button>,
               terms_condition.addLoading || terms_condition.updateLoading ? (
                 <div className="text-center">
-                  <Spinner />
+                  <Spinner style={styles.spinner} />
                 </div>
               ) : (
                 <Button key="submit" type="primary" onClick={() => onAddTerm()}>
@@ -423,7 +423,7 @@ const Settings = (props) => {
               </Button>,
               policy.addLoading || policy.updateLoading ? (
                 <div className="text-center">
-                  <Spinner />
+                  <Spinner style={styles.spinner} />
                 </div>
               ) : (
                 <Button key="submit" type="primary" onClick={() => onUpdatePolicy()}>
@@ -447,7 +447,7 @@ const Settings = (props) => {
               </Button>,
               terms_condition.addLoading || terms_condition.updateLoading ? (
                 <div className="text-center">
-                  <Spinner />
+                  <Spinner style={styles.spinner} />
                 </div>
               ) : (
                 <Button key="submit" type="primary" onClick={() => onUpdateTerm()}>

@@ -3,7 +3,7 @@ import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
 
 const defaultProps = {
   initialPage: 1,
-  pageSize: 8
+  pageSize: 12
 }
 
 class Paginations extends React.Component {

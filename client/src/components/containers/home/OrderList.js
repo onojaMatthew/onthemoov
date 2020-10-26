@@ -31,8 +31,7 @@ const OrderList = ({ orders, data, onChangePage, pageOfItems }) => {
         </thead>
         <OrderListview orders={orders} pageOfItems={pageOfItems} />
       </Table>
-      {data && data.length ? <Paginations items={data} onChangePage={onChangePage} /> : null}
-      
+      {data && data.length > 0 ? <Paginations items={data} onChangePage={onChangePage} /> : null}
     </div>
   );
 }

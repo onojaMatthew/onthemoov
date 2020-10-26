@@ -37,6 +37,9 @@ const styles = {
     borderRadius: "5px",
     padding: "10px",
     marginRight: "5px"
+  },
+  spinner: {
+    color: "#26acd1"
   }
 }
 
@@ -77,7 +80,7 @@ const NotificationList = () => {
               <Table responsive hover style={styles.table}>
 
                 <tbody>
-                  {notifications.getNotificationsLoading ? <Spinner /> : notifications.notifications && notifications.notifications.length ? notifications.notifications.map(notification => (
+                  {notifications.getNotificationsLoading ? <Spinner style={styles.spinner} /> : notifications.notifications && notifications.notifications.length ? notifications.notifications.map(notification => (
                     
                     <tr key={notification._id} >
                       <td style={styles.row}>

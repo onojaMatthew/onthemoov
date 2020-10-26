@@ -29,7 +29,10 @@ const styles = {
     borderRadius: "5px",
     height: "40px"
   },
-  border: "none"
+  border: "none",
+  spinner: {
+    color: "#26acd1"
+  }
 }
 
 const { TextArea } = Input;
@@ -122,7 +125,7 @@ const Notifications = (props) => {
           <Row className="mt-2">
             <Col xs="12" xl="10"></Col>
             <Col xs="12" xl="2">
-              {loading ? <Spinner color="primary" /> : (
+              {loading ? <Spinner style={styles.spinner} /> : (
                 <Button onClick={() => onReply()} style={styles.button}>Send message</Button>
               )}
             </Col>

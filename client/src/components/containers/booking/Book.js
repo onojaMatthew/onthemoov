@@ -23,7 +23,6 @@ const styles = {
     color: "#fff"
   },
   amount: {
-    // background: "#26ad1",
     padding: "10px"
   },
   moreAddr: {
@@ -49,7 +48,6 @@ const Book = () => {
   const [ cost, setCost ] = useState(0);
   const [ pickupLat, setPickupLat] = useState("");
   const [ pickupLong, setPickupLong ] = useState("");
-  // const [ coordinate, setCoordinates ] = useState([])
   const [ totalCost, setTotalCost ] = useState(0);
   const dispatch = useDispatch();
   const adminId = localAuth().user && localAuth().user._id;
@@ -154,7 +152,6 @@ const Book = () => {
     setPickupLong(coords.lng);
     let coordinate = [...coordinates];
     coordinate.push(coords);
-    // setCoordinates(coordinate);
   };
 
   const onAddressChange = (address, name, index) => {
@@ -297,7 +294,7 @@ const Book = () => {
                 <Col xs="12" xl="6" className="cost-container">
                   {price.loading ? (
                     <div className="text-center">
-                      <Spinner />
+                      <Spinner style={styles.spinner} />
                     </div>
                   ) : <h6>&#8358; {totalCost && totalCost.toFixed(2)}</h6>}
                   

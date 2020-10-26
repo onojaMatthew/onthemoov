@@ -42,6 +42,9 @@ const styles = {
     borderRadius: "5px",
     padding: "10px",
     marginRight: "5px"
+  },
+  spinner: {
+    color: "#26acd1"
   }
 }
 
@@ -134,7 +137,7 @@ const Transactions = (props) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {orders.ridersLoading ? <Spinner color="primary" /> : filterData && filterData.length ? filterData.map(order => (
+                  {orders.ridersLoading ? <Spinner style={styles.spinner} /> : filterData && filterData.length ? filterData.map(order => (
                     <tr>
                       <td>{order.senderId && order.senderId.firstName} {order.senderId && order.senderId.lastName}</td>
                       <td>{order.riderId && order.riderId.firstName} {order.riderId && order.riderId.lastName}</td>
@@ -183,10 +186,8 @@ const Transactions = (props) => {
           </Tabs>
         </Col>
       </Row>
-      {filterData && filterData.length > 0 ? (
-        <Paginations items={data && data} onChangePage={onChangePage} />
-      ) : null}
-      
+      {data && data.length > 0 ?
+        <Paginations items={data && data} onChangePage={onChangePage} /> : null}
     </div>
   );
 }

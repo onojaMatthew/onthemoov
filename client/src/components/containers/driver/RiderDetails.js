@@ -40,12 +40,14 @@ const styles = {
     textAlign: "center"
   },
   row: {
-    // padding: "7px",
     textAlign: "center"
   },
   ifram: {
     width: "100%",
     height: "auto"
+  },
+  spinner: {
+    color: "#26acd1"
   }
 }
 
@@ -190,7 +192,7 @@ const RiderDetails = () => {
               </tr>
             </thead>
             <tbody>
-              {orders.riderOrderLoading ? <Spinner /> : filteredOrders && filteredOrders.length ? filteredOrders.map(order => (
+              {orders.riderOrderLoading ? <Spinner style={styles.spinner} /> : filteredOrders && filteredOrders.length ? filteredOrders.map(order => (
                 <tr key={order._id}>
                   <td style={styles.row}>{order.createdAt && moment(order.createdAt).format("DD/MM/YY")}</td>
                   <td style={styles.row}>{order.senderId && order.senderId.firstName}</td>

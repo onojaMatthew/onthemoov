@@ -217,11 +217,104 @@ const NewRiders = () => {
                       </Row>
                     </Card>
                   </Col>
+                )) : pageOfItems.length ? pageOfItems.map(rider => (
+                  <Col xs="12" xl="4" className="mt-2">
+                    <Card style={styles.card_container} className="mb-3" draggable>
+                      <Row className="mt-2 p-1">
+                        <Col xs="12" xl="2">
+                          <img
+                            src={`${BASE_URL}/photo/${rider && rider.role}/${rider && rider._id}?${new Date().getTime()}`}
+                            onError={(i) => i.target.src = `${Avatar}`}
+                            alt="avatar"
+                            style={styles.image}
+                          />
+                        </Col>
+                        <Col xs="12" xl="10">
+                          <h6 className="m-1"><strong>{rider && rider.firstName} {rider && rider.lastName}</strong></h6>
+                          <Row className="m-1">
+                            <Table responsive style={{ border: "none"}}>
+                              <tbody>
+                                <tr>
+                                  <td style={styles.p}>Email address</td>
+                                  <td style={styles.p}>{rider && rider.email ? rider.email : "No emaill address"}</td>
+                                </tr>
+                                <tr>
+                                  <td style={styles.p}>Phone</td>
+                                  <td style={styles.p}>{rider && rider.phone ? rider.phone : "No phone"}</td>
+                                </tr>
+                                <tr>
+                                  <td style={styles.p}>Vehicle type</td>
+                                  <td style={styles.p}>{rider.vehicleType ? rider.vehicleType.charAt(0).toUpperCase() + rider.vehicleType.slice(1) : "Pending update"}</td>
+                                </tr>
+                                <tr>
+                                  <td style={styles.p}>Reg. number</td>
+                                  <td style={styles.p}>{rider && rider.vehicleNumber ? rider.vehicleNumber : "Pending update"}</td>
+                                </tr>
+                                <tr>
+                                  <td style={styles.p}>Model</td>
+                                  <td style={styles.p}>{rider.vehicleModel ? rider.vehicleModel : "Pending update"}</td>
+                                </tr>
+                              </tbody>
+                            </Table>
+                          </Row>
+                        </Col>
+                      </Row>
+                      <Row className="mr-2">
+                        <Col xs="12" xl="6">
+                          <span style={{ ...styles.span}} onClick={() => setVisible(true)}>
+                            <FilePdfOutlined /> See documents</span>
+                        </Col>
+                        <Col xs="3" xl="6">
+                          <Row className="mr-2">
+                            <Col xs="6" xl="6">
+                              {riders.activateLoading ? <Spinner /> : (
+                                <Button style={{ ...styles.button }} onClick={() => onAccept(rider._id)}>Accept</Button>
+                              )}
+                            </Col>
+                            <Col xs="6" xl="6">
+                              <Button style={{ ...styles.button }}>Decline</Button>
+                            </Col>
+                          </Row>
+                        </Col>
+                      </Row>
+                      <Row className="justify-content-center">
+                        <Col xs="12" xl="6">
+                          <Modal
+                            title="Rider's vehicle particulers"
+                            visible={visible}
+                            onOk={handleOk}
+                            onCancel={() => handleCancel()}
+                          >
+                            <Row className="mt-3">
+                              <Col xs="12" xl="12">
+                                <img src={`${BASE_URL}/rider/insurance/photo/${rider && rider._id}?${new Date().getTime()}`} style={ styles.ifram } alt="driver license" /> 
+                              </Col>
+                            </Row>
+                            <p>Vehicle insurance</p>
+                            <hr />
+                            <Row className="mt-3">
+                              <Col xs="12" xl="12">
+                                <img src={`${BASE_URL}/rider/license/photo/${rider && rider._id}?${new Date().getTime()}`} style={ styles.ifram } alt="driver license" /> 
+                              </Col>
+                            </Row>
+                            <p>Driving license</p>
+                            <hr />
+                            <Row className="mt-3">
+                              <Col xs="12" xl="12">
+                                <img src={`${BASE_URL}/rider/vehicle/photo/${rider && rider._id}?${new Date().getTime()}`} style={ styles.ifram } alt="driver license" /> 
+                              </Col>
+                            </Row>
+                            <p>Vehicle image</p>
+                          </Modal>
+                        </Col>
+                      </Row>
+                    </Card>
+                  </Col>
                 )) : <p>No records found</p>}
             </Row>
           </TabPane>
         </Tabs>
-        {filteredContents && filteredContents.length > 0 ? (
+        {data && data.length > 0 ? (
           <Paginations items={data} onChangePage={onChangePage} />
         ) : null}
         </Col>

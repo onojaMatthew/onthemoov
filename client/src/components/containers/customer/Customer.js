@@ -51,6 +51,9 @@ const styles = {
     borderRadius: "50%",
     padding: "10px"
   },
+  spinner: {
+    color: "#26acd1"
+  }
 }
 
 const Customer = (props) => {
@@ -75,7 +78,7 @@ const Customer = (props) => {
 
   useEffect(() => {
     setData(filteredOrders);
-  }, []);
+  }, [filteredOrders]);
  
   return (
     <div>
@@ -125,7 +128,7 @@ const Customer = (props) => {
               </tr>
             </thead>
             <tbody>
-              {orders.riderOrderLoading ? <Spinner /> : filteredOrders && filteredOrders.length ? filteredOrders.map(order => (
+              {orders.riderOrderLoading ? <Spinner style={styles.spinner} /> : filteredOrders && filteredOrders.length ? filteredOrders.map(order => (
                 <tr key={order._id}>
                   <td style={styles.row}>{order.createdAt && moment(order.createdAt).format("DD/MM/YY")}</td>
                   <td style={styles.row}>{order.senderId && order.senderId.firstName}</td>
@@ -143,7 +146,7 @@ const Customer = (props) => {
           </Table>
         </Col>
       </Row>
-      {filteredOrders && filteredOrders.length > 0 ? (
+      {data && data.length > 0 ? (
         <Paginations items={data} onChangePage={onChangePage} />
       ) : null}
     </div>

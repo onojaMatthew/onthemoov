@@ -49,7 +49,7 @@ const RiderList = ({ filteredContents, match, riders }) => {
       <tbody>
         {riders && riders.ridersLoading ? (
           <div className="text-center mt-4" style={{ textAlign: "center"}}>
-            <Spinner color="primary" />
+            <Spinner style={styles.spinner} />
           </div>
         ) : filteredContents.length ? filteredContents.map((rider, i) => (
           <tr key={rider._id} style={styles.row}>

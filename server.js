@@ -118,6 +118,3 @@ server.listen(port, () => {
   winston.info(`🚀 Server ready at http://localhost:${ port }`);
 });
 
-//vultr account username adetayo@onthemoov.com password sKbHpnwZpa.cf33
-
-// vultr server = 45.32.34.219 pasword = *2gVz.!2wK!sDZ7#

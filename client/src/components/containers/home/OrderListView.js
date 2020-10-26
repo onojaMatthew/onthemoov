@@ -8,6 +8,9 @@ const styles = {
   p: {
     textAlign: "center",
     fontSize: "18px"
+  },
+  spinner: {
+    color: "#26acd1"
   }
 }
 const OrderListview = ({ orders, pageOfItems }) => {
@@ -17,7 +20,7 @@ const OrderListview = ({ orders, pageOfItems }) => {
     <tbody>
       {orders && orders.ordersLoading ? (
         <div className="text-center mt-4" style={{ textAlign: "center"}}>
-          <Spinner color="primary" />
+          <Spinner style={styles.spinner} />
         </div>
       ) : pageOfItems && pageOfItems.length ? pageOfItems.map((order, i) => (
         <tr key={order._id} style={styles.row}>
@@ -29,7 +32,6 @@ const OrderListview = ({ orders, pageOfItems }) => {
           <td style={styles.row}>{order && order.tripCompleted === true ? "Delivered" : order.on_going === true ? "On going" : order.cancelled === true ? "Cancelled" : "Requested"}</td>
         </tr>
       )): <p style={styles.p}>No records found</p>}
-      
     </tbody>
     </>
   );
