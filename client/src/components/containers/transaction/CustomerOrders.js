@@ -4,7 +4,7 @@ import { Col, Row, Table, Spinner, Card, CardBody } from "reactstrap";
 import { Input, Tabs, message } from "antd";
 import { getOrders, deleteOrder } from "../../../store/actions/order";
 import Paginations from "../../views/Pagination";
-import { EyeOutlined, DeleteOutlined, FilterOutlined } from "@ant-design/icons";
+import { DeleteOutlined, FilterOutlined } from "@ant-design/icons";
 import { localAuth } from "../../../helper/authentcate";
 
 const { TabPane } = Tabs;
@@ -46,7 +46,7 @@ const styles = {
   }
 }
 
-const CustomerOrders = (props) => {
+const CustomerOrders = () => {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.orderReducer);
   const [ pageOfItems, setPageOfItems ] = useState([]);
@@ -131,7 +131,9 @@ const CustomerOrders = (props) => {
           </Row>
         </CardBody>
       </Card>
-      <Paginations items={data && data} onChangePage={onChangePage} />
+      {filterData && filterData.length > 0 ? (
+        <Paginations items={data && data} onChangePage={onChangePage} />
+      ) : null}
     </div>
   );
 }

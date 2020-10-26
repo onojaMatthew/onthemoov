@@ -143,7 +143,9 @@ const Customer = (props) => {
           </Table>
         </Col>
       </Row>
-      <Paginations items={data} onChangePage={onChangePage} />
+      {filteredOrders && filteredOrders.length > 0 ? (
+        <Paginations items={data} onChangePage={onChangePage} />
+      ) : null}
     </div>
   );
 }

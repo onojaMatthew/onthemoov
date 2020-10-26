@@ -60,6 +60,9 @@ const styles = {
     borderRadius: "5px",
     padding: "10px",
     marginRight: "5px"
+  },
+  spinner: {
+    color: "#26acd1"
   }
 }
 
@@ -119,7 +122,7 @@ const NewRiders = () => {
             <Row>
               {riders.ridersLoading ? 
               ( <div className="ml-5">
-                  <Spinner color="primary" />
+                  <Spinner style={styles.spinner} />
                 </div>
                 ) : filteredContents.length ? filteredContents.map(rider => (
                   <Col xs="12" xl="4" className="mt-2">
@@ -218,7 +221,9 @@ const NewRiders = () => {
             </Row>
           </TabPane>
         </Tabs>
-        <Paginations items={data} onChangePage={onChangePage} />
+        {filteredContents && filteredContents.length > 0 ? (
+          <Paginations items={data} onChangePage={onChangePage} />
+        ) : null}
         </Col>
       </Row>
     </div>

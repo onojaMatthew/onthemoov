@@ -38,6 +38,9 @@ const styles = {
     color: "#26acd1",
     marginBottom: "35px",
     cursor: "pointer"
+  },
+  spinner: {
+    color: "#26acd1"
   }
 }
 
@@ -75,7 +78,7 @@ const ForgotView = ({
           </p>
           {auth && auth.forgotLoading ? (
             <div className="text-center">
-              <Spinner />
+              <Spinner style={styles.spinner} />
             </div>
           ) : (
             <Button onClick={(e) => onForgot(e)} style={styles.button}>Send</Button>

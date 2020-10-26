@@ -32,6 +32,9 @@ const styles = {
     color: "#fff",
     marginBottom: "35px",
     height: "40px"
+  },
+  spinner: {
+    color: "#26acd1"
   }
 }
 
@@ -66,7 +69,7 @@ const ResetPasswordView = ({
           </p>
           {auth && auth.resetLoading ? (
             <div className="text-center">
-              <Spinner />
+              <Spinner style={styles.spinner} />
             </div>
           ) : (
             <Button onClick={(e) => onResetPassword(e)} style={styles.button}>Send</Button>

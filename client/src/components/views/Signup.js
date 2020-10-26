@@ -30,6 +30,9 @@ const styles = {
     color: "#fff",
     marginBottom: "35px",
     height: "40px"
+  },
+  spinner: {
+    color: "#26acd1"
   }
 }
 
@@ -142,7 +145,7 @@ const SignupView = ({
           )}
           {auth.signupLoading=== true || auth.registerLoading ? (
             <div className="text-center">
-              <Spinner color="blue" />
+              <Spinner style={styles.spinner} />
             </div>
           ) : (
             <Button onClick={(e) => onRegister(e)} style={styles.button}>sign up</Button>

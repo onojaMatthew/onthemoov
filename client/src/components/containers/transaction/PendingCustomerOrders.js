@@ -186,7 +186,9 @@ const PendingCustomerOrders = (props) => {
           </Tabs>
         </Col>
       </Row>
-      <Paginations items={data && data} onChangePage={onChangePage} />
+      {filterData && filterData.length > 0 ? (
+        <Paginations items={data && data} onChangePage={onChangePage} />
+      ) : null}
     </div>
   );
 }

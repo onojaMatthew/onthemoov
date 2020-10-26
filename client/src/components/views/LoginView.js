@@ -30,6 +30,9 @@ const styles = {
     color: "#fff",
     marginBottom: "35px",
     height: "40px"
+  },
+  spinner: {
+    color: "#26acd1"
   }
 }
 
@@ -80,7 +83,7 @@ const LoginView = ({
           </p>
           {auth && auth.loginLoading ? (
             <div className="text-center">
-              <Spinner />
+              <Spinner style={styles.spinner} />
             </div>
           ) : (
             <Button onClick={(e) => onLogin(e)} style={styles.button}>sign In</Button>

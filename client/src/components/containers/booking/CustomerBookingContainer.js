@@ -93,7 +93,7 @@ const CustomerBookingCustomer = (props) => {
           </div>
         </Container>
       </Header>
-      <Container>
+      <Container style={{ minHeight: "400px"}}>
         <Switch>
           <MapContextProver>
             <Route exact path={`${props.match.url}`} render={(props) => <CustomerBooking {...props} />} />

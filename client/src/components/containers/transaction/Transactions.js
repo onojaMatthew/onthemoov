@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Col, Card, CardBody, Row, Table, Spinner } from "reactstrap";
 import { Input, Tabs, message } from "antd";
-import { getOrders, riderOrdersStart, deleteOrder } from "../../../store/actions/order";
+import { getOrders, deleteOrder } from "../../../store/actions/order";
 import Paginations from "../../views/Pagination";
 import { EyeOutlined, DeleteOutlined, FilterOutlined } from "@ant-design/icons";
 
@@ -183,7 +183,10 @@ const Transactions = (props) => {
           </Tabs>
         </Col>
       </Row>
-      <Paginations items={data && data} onChangePage={onChangePage} />
+      {filterData && filterData.length > 0 ? (
+        <Paginations items={data && data} onChangePage={onChangePage} />
+      ) : null}
+      
     </div>
   );
 }

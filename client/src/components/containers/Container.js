@@ -7,7 +7,6 @@ import Transaction from "./transaction/Transaction";
 import CustomersRiders from "./customer/Customers&Riders";
 import NewRiders from "./driver/NewRiders";
 import Settings from "./settings/Settings";
-import Reports from "./report/Reports";
 import Notifications from "./notification/Notifactions";
 import Driver from "./driver/Driver";
 import Customer from "./customer/Customer";
@@ -38,7 +37,7 @@ const Container = (props) => {
             <Row>
               <Col xs="12" xl="12">
                 <div className="home-banner">
-                  <h5>Welcome Back!</h5>
+                  <h5>ONTHEMOOV App</h5>
                   <p className="banner-text">Manage Orders, Drivers and Activity</p>
                 </div>
               </Col>
@@ -56,7 +55,6 @@ const Container = (props) => {
           <Route exact path={`${props.match.url}/transactions/:transactionId`} render={(props) => <Transaction {...props} />} />
           <Route exact path={`${props.match.url}/customers/:customerId`} render={(props) => <Customer {...props} />} />
           <Route exact path={`${props.match.url}/new_riders`} render={(props) => <NewRiders {...props} />} />
-          <Route exact path={`${props.match.url}/reports`} render={(props) => <Reports {...props} />} />
           <Route exact path={`${props.match.url}/notifications`} render={(props) => <NotificationList {...props} />} />
           <Route exact path={`${props.match.url}/notifications/:notificationId`} render={(props) => <Notifications {...props} />} />
           <Route exact path={`${props.match.url}/settings`} render={(props) => <Settings {...props} />} />
