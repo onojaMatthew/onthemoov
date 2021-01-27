@@ -11,6 +11,14 @@ const storage = multer.diskStorage({
 
   filename: function (req, file, cb) {
     cb(null, file.originalname);
+  },
+
+  fileFilter: (req, file, cb) => {
+    const ext = path.extname(file.originalname)
+    if (ext !== '.jpg' || ext !== '.png' || ext !== ".jpeg") {
+      return cb(res.status(400).end('only jpg, png are allowed'), false);
+    }
+    cb(null, true)
   }
 });
 

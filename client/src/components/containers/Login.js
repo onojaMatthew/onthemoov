@@ -8,7 +8,8 @@ const styles = {
   container: {
     position: "relative",
     top: 0,
-    paddingTop: 50
+    paddingTop: 50,
+    marginTop: "20%",
   }
 }
 

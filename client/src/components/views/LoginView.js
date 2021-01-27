@@ -48,7 +48,7 @@ const LoginView = ({
 }) => {
     
   return (
-    <div>
+    <div style={{ marginTop: "20%"}}>
       <div style={styles.formContainer}>
         <div className="banner">
           <h5>Welcome Back!</h5>

@@ -11,7 +11,7 @@ import "antd/dist/antd.css";
 import './index.css';
 import App from './components/App';
 
-const store = createStore( rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore( rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
 
 ReactDOM.render(
   <React.StrictMode>

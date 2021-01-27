@@ -138,7 +138,6 @@ export const login = (data, userType) => {
     })
       .then(response => response.json())
       .then(resp => {
-        console.log(resp, "this resp")
         if (resp.error) return dispatch(loginFailed(resp.error));
         Auth.authenticateUser(JSON.stringify(resp));
         dispatch(loginSuccess(resp));
