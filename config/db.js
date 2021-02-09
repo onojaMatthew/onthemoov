@@ -5,7 +5,7 @@ require( "dotenv" ).config();
 let db_url;
 const env = process.env.NODE_ENV || 'development';
 if ( env === "development" ) {
-  db_url = process.env.DEV_DB;
+  db_url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@onthemoov.wfw7e.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 } else {
   db_url = process.env.PROD_DB;
 }
