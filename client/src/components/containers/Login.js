@@ -9,7 +9,6 @@ const styles = {
     position: "relative",
     top: 0,
     paddingTop: 50,
-    marginTop: "20%",
   }
 }
 

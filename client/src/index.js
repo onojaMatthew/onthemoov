@@ -11,7 +11,14 @@ import "antd/dist/antd.css";
 import './index.css';
 import App from './components/App';
 
-const store = createStore( rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
+let store;
+
+if (process.env.REACT_APP_ENV === "development") {
+  store = createStore( rootReducer, composeWithDevTools(applyMiddleware(thunk, logger)));
+} else {
+  store = createStore( rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+}
+
 
 ReactDOM.render(
   <React.StrictMode>
